@@ -3,7 +3,7 @@ CURS 6
 *** Interfete marker
 
 Cloneable (face o copie a clasei), 
-Serializable (elementele clasei sunt livrate in ordine -  folosit la scriere in fisere, tran smisii)
+Serializable (elementele clasei sunt livrate in ordine -  folosit la scriere in fisere, transmisii)
 
 
 *** Clase adaptor
