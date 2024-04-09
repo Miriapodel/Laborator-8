@@ -1,10 +1,10 @@
 Plati bancare
 
 Un Payment(clasa)are:
-amount, currency, User , purpose
+amount, currency (enum), User , purpose
 
 User (clasa) are nume, prenume, iban
-Currency(enum) poate fi USD, RON, EUR, GBP
+Currency(enum) poate fi USD, RON, EUR, GBP, TRY
 
 interfata ConversieCalcul cu metode neimplementate
  are o metoda de conversie valuta moneda in EUR (conversieValutaToEur)
@@ -20,7 +20,7 @@ EUR("Uniunea Europeana", "UE");
 punem in enum: RON, USD, GBP, TRY (lira turceasca), EUR
 
 Tranzactie (clasa)
-contine id, Payment, currency, amount, refNmb
+contine id, Payment, currency (enum), amount, refNmb
 Tranzactie va extinde ConversieCalculImpl
 constructorul va contine id si Payment.
 In constructor se va apela metoda conversie valuta din mostenire cu ajutorul careia se vor seta amount.
