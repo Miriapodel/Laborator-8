@@ -10,7 +10,7 @@ interfata ConversieCalcul cu metode neimplementate
  are o metoda de conversie valuta moneda in EUR (conversieValutaToEur)
  are o metoda calculRata()
 
- Se va face o clasa ConversieCurrencyImpl care sa implementeze ConversieCalcul.
+ Se va face o clasa ConversieCalculImpl care sa implementeze ConversieCalcul.
  Se va face ConversieCalculImpl ca si clasa adaptor (calculRata nu va fi niciodata utilizata).
 
  Valutele sunt tinute in enum ul Currency avand formatul
