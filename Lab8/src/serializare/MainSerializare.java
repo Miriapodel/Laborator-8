@@ -4,6 +4,8 @@ import serializare.model.Nod;
 import serializare.model.Persoana;
 import utils.FileManagement;
 
+import java.util.Arrays;
+
 public class MainSerializare {
 
     private static String fisierPersoane = "listaPersoaneSerializable.txt";
@@ -16,8 +18,10 @@ public class MainSerializare {
         //Lista circulara Curs 8
         Nod prim = serializareListaCirculara();
         FileManagement.scriereObiectInFisier(listaSerie, prim);
-        Nod prim2 = (Nod) FileManagement.citireObiectDinFisier(listaSerie);
-        afisareSerieNodCitita(prim2);
+        Object[] prim2 = FileManagement.citireObiectDinFisier(listaSerie);
+        if(prim2.length == 1) {
+            afisareSerieNodCitita((Nod) prim2[0]);
+        }
     }
 
     private static void serializareDemo() {
@@ -26,7 +30,7 @@ public class MainSerializare {
         Persoana p2 = new Persoana("Preda", "Maria" , 14);
 
         FileManagement.scriereObiectInFisier(fisierPersoane, p1, p2);
-        FileManagement.citireObiectDinFisier(fisierPersoane);
+        Arrays.stream(FileManagement.citireObiectDinFisier(fisierPersoane)).toList().forEach(p -> System.out.println(p));
     }
 
     private static Nod serializareListaCirculara() {

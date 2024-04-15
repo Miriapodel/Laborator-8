@@ -1,8 +1,5 @@
 package utils;
 
-import externalizare.PersoanaExternalizable;
-import serializare.model.Persoana;
-import serializare.model.Nod;
 import java.io.*;
 
 public class FileManagement {
@@ -12,9 +9,7 @@ public class FileManagement {
     public static void scriereObiectInFisier(String outputFile, Object... obj) {
         try(FileOutputStream fos = new FileOutputStream(outputFile);
             ObjectOutputStream oos = new ObjectOutputStream(fos)){
-            for(Object o : obj) {
-                oos.writeObject(o);
-            }
+            oos.writeObject(obj);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -22,24 +17,11 @@ public class FileManagement {
         }
     }
 
-    public static Object citireObiectDinFisier(String fileName) {
+    public static Object[] citireObiectDinFisier(String fileName) {
+        Object[] o;
         try(FileInputStream fis = new FileInputStream(fileName);
             ObjectInputStream ois = new ObjectInputStream(fis)){
-            try {
-                while (true){
-                    Object o =  ois.readObject();
-                    switch (o){
-                        case Persoana p ->  System.out.println(p);
-                        case PersoanaExternalizable pe ->  System.out.println(pe);
-                        case Nod n -> {
-                            return n;
-                        }
-                        default -> throw new IllegalStateException("Unexpected value: " + o);
-                    }
-                }
-            } catch (EOFException e) {
-            }
-
+            o = (Object[]) ois.readObject();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -47,6 +29,6 @@ public class FileManagement {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return o;
     }
 }

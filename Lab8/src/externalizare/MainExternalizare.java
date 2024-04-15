@@ -2,6 +2,8 @@ package externalizare;
 
 import utils.FileManagement;
 
+import java.util.Arrays;
+
 //Externalizable curs 8
 public class MainExternalizare {
     private static String fisierPersoaneExt = "listaPersoaneExternalizabile.txt";
@@ -11,6 +13,6 @@ public class MainExternalizare {
 
         FileManagement.scriereObiectInFisier(fisierPersoaneExt, p1, p2);
 
-        FileManagement.citireObiectDinFisier(fisierPersoaneExt);
+        Arrays.stream(FileManagement.citireObiectDinFisier(fisierPersoaneExt)).toList().forEach(pe -> System.out.println(pe));
     }
 }
