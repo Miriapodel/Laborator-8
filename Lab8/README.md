@@ -159,4 +159,4 @@ exemplu:
 
 ClassB implements Externalizable
 
-! Pentru a functiona serializarea si deserializare trebuie definit constructorul implicit. !
+! Pentru a functiona serializarea si deserializarea pentru Externalizable trebuie definit constructorul implicit. !
