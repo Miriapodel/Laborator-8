@@ -61,7 +61,7 @@ Daca pentru mai multe exceptii in catch se pune acelasi cod java, forma de mai s
       try{      
            instructiuni      
       }
-      catch(ExceptieA a | ExceptieB b){  
+      catch(ExceptieA | ExceptieB e){  
            ....
       }finally{      
            ...
