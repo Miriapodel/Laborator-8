@@ -78,10 +78,12 @@ finally{
 
      ...
 }
+
 Variante posibile:
-try/catch/finally
-try/catch
-try/finally
+
+      try/catch/finally
+      try/catch
+      try/finally
 
 Instructiunile scrise in **finally** vor fi intotdeauna executate chiar daca in blocul principal sau in catch ul 
 corespunzator exista return.
@@ -134,6 +136,87 @@ try(deschidere resursa){...}
 catch(ExceptionX e){...}
 
 Cand se termina blocul try/catch de executat, resursele deschise in blocul try, se vor inchide automat, adica se apeleaza automat close() pentrue ele.
+
+**Fluxuri I/O**
+
+Sunt de intrare sau iesire.
+
+La nivel de octet (flox pe 8 biti), la nivel de caracter (16 biti).
+
+Dupa modul cum actioneaza asupra datelor:
+- primitive (doar citire/scriere)
+- procesare (adauga la cele primitive operatii suplimentare, procesare la nivel de buffer, serializare)
+
+Flux primitiv:
+1. Prelucrare la nivel de caracter
+
+        Citire
+              FileReader fr = new FileReader("ex.txt")
+              sau
+              File f = new File("ex.txt")
+              FileReader fr = new FileReader(f)
+              citire cu read()
+              Citirea din fisier se face pana la sfarsit cu
+              int end;
+              while(end = fr.read() !=-1){ ....}
+
+
+        Scriere
+            FileWriter fr = new FileWriter("ex.txt")
+            sau
+            File f = new File("ex.txt")
+            FileWriter fr = new FileWriter(f)
+            scriere cu write(...)-> primeste ca parametru char, string, tablou de chars
+            format apelare: FileWriter(nume fisier, append) append este true sau false daca se doreste adaugarea la sfarsit
+
+2. Prelucrare la nivel de octeti (fisiere binare)
+   
+       Citire
+         FileInputStream fis = new FileInputStream("test.txt")
+         sau
+         File f = new File("test.txt")
+         FileInputStream fis = new FileInputStream(f)
+         Citeste tablou de octeti write(byte[] bytes)
+   
+         int dimFisier = fis.available() ---> returneaza nr de octeti din fisier
+         byte[] buffer = new byte[dimFisier]
+         fis.read(buffer);
+      
+       Scriere
+         FileOutputStream fos = new FileOutputStream("test2.txt")
+         sau
+         File f2 = new File("test2.txt")
+         FileOutputStream fos = new FileOutputStream(f2)
+   
+         fos.write(buffer);
+
+Fluxuri de procesare
+
+Fluxul procesat nu mei este prelucrat la nivel de octet ci sunt grupati ca sa reprezinte primitive, siruri, obiecte
+
+1. DataInputStream/DataOutputStream, ObjectInputStream/ObjectOutputStream
+
+   DataInputStream/DataOutputStream au metode de citire scriere pe primitive
+
+            readBoolean(), writeBoolean(boolean b) etc
+
+   ObjectInputStream/ObjectOutputStream scriu/citesc obiecte.
+
+           readObject(), writeObject(obj)
+
+2. Folosire buffer
+      
+      BufferedReader, BufferedWriter - flux de procesare la nivel de caracter
+ 
+          BufferedReader br = new BufferedReader(new FileReader("dateIn.txt"));
+          BufferedWriter bw = new BufferedWriter(new FileWriter("dateOut.txt"));
+          String linie;
+          while(linie = br.readLine() != null){...
+             bw.write("string");
+          }
+
+      BufferedInputStream, BufferedOutputStream - flux de procesare la nivel de octeti
+
 
 
 Curs 8

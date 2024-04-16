@@ -22,7 +22,7 @@ public class MainExceptii {
         } catch (IOException e) { //este aruncata de write
             throw new RuntimeException(e);
         } catch (MyException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e);// aici exceptia se trateaza/se logheaza/sau se arunca
             // throw new Exception(e);//se observa ca daca se pune Exception , va trebui adaugat in antetul metodei main
         }
       /*
