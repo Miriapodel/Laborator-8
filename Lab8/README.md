@@ -43,41 +43,29 @@ Se poate face in doua moduri:
 
 Sintaxa:
 
-
-try{
-
-     instructiuni
-
-}
-catch(ExceptieA a){
-
-     ....
-}
-
-catch(ExceptieB b){
-
-     ...
-}
-finally{
-
-     ...
-}
+      try{      
+           instructiuni      
+      }
+      catch(ExceptieA a){      
+           ....
+      }      
+      catch(ExceptieB b){      
+           ...
+      }
+      finally{      
+           ...
+      }
 
 Daca pentru mai multe exceptii in catch se pune acelasi cod java, forma de mai sus se mai poate scrie si:
 
-try{
-
-     instructiuni
-
-}
-catch(ExceptieA a | ExceptieB b){
-
-     ....
-}
-finally{
-
-     ...
-}
+      try{      
+           instructiuni      
+      }
+      catch(ExceptieA a | ExceptieB b){  
+           ....
+      }finally{      
+           ...
+      }
 
 Variante posibile:
 
