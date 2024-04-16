@@ -92,27 +92,27 @@ Cand sunt prise mai multe exceptii in catch, ordinea blocurilor catch este de la
 
 Exemplu:
 
-ExceptiaB extends ExceptiaA
-
-ExceptiaC extends ExceptiaD
+      ExceptiaB extends ExceptiaA
+      
+      ExceptiaC extends ExceptiaD
 
 Parintele tuturor este Exception.
 
 
-try{}
-
-catch(ExceptioaD d){}
-
-catch(ExceptiaC c){}
-
-catch(ExceptiaB b){}
-
-catch(ExceptiaA a){}
-
-catch(Exception e){} /*Exception simplu se foloseste doar daca vrem sa prindem absolut toate exceptiile, si cele nedefinite mai sus.
-      In general nu se foloseste Exception. Vor trebui prinse toate exceptiile particulare si tratate.*/
-
-finally{}
+      try{}
+      
+      catch(ExceptioaD d){}
+      
+      catch(ExceptiaC c){}
+      
+      catch(ExceptiaB b){}
+      
+      catch(ExceptiaA a){}
+      
+      catch(Exception e){} /*Exception simplu se foloseste doar daca vrem sa prindem absolut toate exceptiile, si cele nedefinite mai sus.
+            In general nu se foloseste Exception. Vor trebui prinse toate exceptiile particulare si tratate.*/
+      
+      finally{}
 
 
 
@@ -131,9 +131,9 @@ Acesta a aparut dupa Java 7.
 
 Blocul try primeste ca parametri niste clase care implementeaza interfata AutoCloseable
 
-try(deschidere resursa){...}
-
-catch(ExceptionX e){...}
+      try(deschidere resursa){...}
+      
+      catch(ExceptionX e){...}
 
 Cand se termina blocul try/catch de executat, resursele deschise in blocul try, se vor inchide automat, adica se apeleaza automat close() pentrue ele.
 
@@ -141,7 +141,7 @@ Cand se termina blocul try/catch de executat, resursele deschise in blocul try, 
 
 Sunt de intrare sau iesire.
 
-La nivel de octet (flox pe 8 biti), la nivel de caracter (16 biti).
+La nivel de octet (flux pe 8 biti), la nivel de caracter (16 biti).
 
 Dupa modul cum actioneaza asupra datelor:
 - primitive (doar citire/scriere)
