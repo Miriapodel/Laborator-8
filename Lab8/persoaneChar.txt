@@ -1,0 +1,2 @@
+Ionescu; Gigi; 20; 300; ron
+Ionescu; Gigi; 30; 1000; ron
